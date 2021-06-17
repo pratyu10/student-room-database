@@ -1,8 +1,11 @@
+package com.example.roomdatabaseexample
+
 import androidx.lifecycle.*
-import com.example.roomdatabaseexample.Word
 import kotlinx.coroutines.launch
 
-class WordViewModel(val repository: WordRepository) : ViewModel() {
+class WordViewModel(
+    private val repository: WordRepository
+) : ViewModel() {
 
     // Using LiveData and caching what allWords returns has several benefits:
     // - We can put an observer on the data (instead of polling for changes) and only update the
@@ -15,15 +18,5 @@ class WordViewModel(val repository: WordRepository) : ViewModel() {
      */
     fun insert(word: Word) = viewModelScope.launch {
         repository.insert(word)
-    }
-}
-
-class WordViewModelFactory(val repository: WordRepository) : ViewModelProvider.Factory {
-    override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(WordViewModel::class.java)) {
-            @Suppress("UNCHECKED_CAST")
-            return WordViewModel(repository) as T
-        }
-        throw IllegalArgumentException("Unknown ViewModel class")
     }
 }
