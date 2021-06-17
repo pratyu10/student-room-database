@@ -11,7 +11,11 @@ import androidx.recyclerview.widget.RecyclerView
 class WordListAdapter : ListAdapter<Word, WordListAdapter.WordViewHolder>(WordsComparator()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WordViewHolder {
-        return WordViewHolder.create(parent)
+        return WordViewHolder(
+            LayoutInflater.from(parent.context).inflate(
+                R.layout.recyclerview_item, parent, false
+            )
+        )
     }
 
     override fun onBindViewHolder(holder: WordViewHolder, position: Int) {
@@ -25,14 +29,6 @@ class WordListAdapter : ListAdapter<Word, WordListAdapter.WordViewHolder>(WordsC
 
         fun bind(text: String?) {
             wordItemView.text = text
-        }
-
-        companion object {
-            fun create(parent: ViewGroup): WordViewHolder {
-                val view: View = LayoutInflater.from(parent.context)
-                    .inflate(R.layout.recyclerview_item, parent, false)
-                return WordViewHolder(view)
-            }
         }
     }
 
