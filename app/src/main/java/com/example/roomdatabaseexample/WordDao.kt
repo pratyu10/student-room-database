@@ -15,7 +15,9 @@ interface WordDao {
     @Query("DELETE FROM table_word")
     suspend fun deleteAllStudents()
 
-    @Query("DELETE FROM table_word")
-    suspend fun deleteOneStudent(word: Word)
+    // @Query("DELETE FROM table_word")
+    // suspend fun deleteOneStudent(word: Word)
 
+    @Delete
+    suspend fun deleteOneStudent(word: Word)
 }
