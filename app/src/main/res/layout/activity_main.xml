@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="4dp" >
+    android:padding="4dp">
 
     <EditText
         android:id="@+id/edit_student"
@@ -20,11 +20,12 @@
         android:inputType="textAutoComplete"
         android:minHeight="56dp"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@id/students_recycler_view"
+        app:layout_constraintBottom_toTopOf="@id/words_recycler_view"
         app:layout_constraintEnd_toStartOf="@id/button_save"
         app:layout_constraintHorizontal_weight="0.7"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/button_save"
         android:layout_width="0dp"
@@ -37,15 +38,17 @@
         app:layout_constraintHorizontal_weight="0.3"
         app:layout_constraintStart_toEndOf="@id/edit_student"
         app:layout_constraintTop_toTopOf="@id/edit_student" />
+
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/students_recycler_view"
+        android:id="@+id/words_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/edit_student"
-        app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginTop="8dp"
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edit_student"
         tools:itemCount="6"
         tools:listitem="@layout/recyclerview_item" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
