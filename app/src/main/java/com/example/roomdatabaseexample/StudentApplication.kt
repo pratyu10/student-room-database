@@ -2,13 +2,13 @@ package com.example.roomdatabaseexample
 
 import android.app.Application
 
-class WordsApplication : Application() {
+class StudentApplication : Application() {
 
     private val database by lazy {
-        WordDatabase.getDatabase(context = this)
+        StudentDatabase.getDatabase(context = this)
     }
 
     val repository by lazy {
-        WordRepository(database.wordDao())
+        StudentRepository(database.studentDao())
     }
 }

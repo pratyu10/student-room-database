@@ -5,25 +5,25 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [Word::class], version = 1, exportSchema = false)
-abstract class WordDatabase : RoomDatabase() {
+@Database(entities = [Student::class], version = 1, exportSchema = false)
+abstract class StudentDatabase : RoomDatabase() {
 
-    abstract fun wordDao(): WordDao
+    abstract fun studentDao(): StudentDao
 
     companion object {
         // Singleton prevents multiple instances of database opening at the
         // same time.
         @Volatile
-        private var INSTANCE: WordDatabase? = null
+        private var INSTANCE: StudentDatabase? = null
 
-        fun getDatabase(context: Context): WordDatabase {
+        fun getDatabase(context: Context): StudentDatabase {
             // if the INSTANCE is not null, then return it,
             // if it is, then create the database
             return INSTANCE ?: synchronized(this) {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
-                    WordDatabase::class.java,
-                    "word_database"
+                    StudentDatabase::class.java,
+                    "student_database"
                 ).build()
                 INSTANCE = instance
                 // return instance
