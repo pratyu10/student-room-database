@@ -15,12 +15,12 @@
         android:layout_marginVertical="16dp"
         android:background="@android:color/transparent"
         android:fontFamily="sans-serif-light"
-        android:hint="@string/hint_word"
+        android:hint="@string/hint_student"
         android:importantForAutofill="no"
         android:inputType="textAutoComplete"
         android:minHeight="56dp"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@id/words_recycler_view"
+        app:layout_constraintBottom_toTopOf="@id/students_recycler_view"
         app:layout_constraintEnd_toStartOf="@id/button_save"
         app:layout_constraintHorizontal_weight="0.7"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,7 +40,7 @@
         app:layout_constraintTop_toTopOf="@id/edit_student" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/words_recycler_view"
+        android:id="@+id/students_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
@@ -50,5 +50,14 @@
         app:layout_constraintTop_toBottomOf="@id/edit_student"
         tools:itemCount="6"
         tools:listitem="@layout/recyclerview_item" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/delete_all"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="Delete all"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

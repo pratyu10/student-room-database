@@ -4,10 +4,10 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "table_word")
-class Word(
+@Entity(tableName = "table_student")
+class Student(
 
     @PrimaryKey
-    @ColumnInfo(name = "column_word")
-    val word: String
+    @ColumnInfo(name = "column_student_name")
+    val studentName: String
 )
